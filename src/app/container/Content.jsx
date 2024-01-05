@@ -6,7 +6,7 @@ const loading = (
   </div>
 )
 
-const TheContent = (props) => {
+const TheContent = (props,children) => {
   const { PERMISSIONS, USER } = props
   const _generatePermission = (data) =>
     PERMISSIONS.find((item) => item.menu_name == data.key) || {

@@ -1,28 +1,45 @@
-"use client"
-import React, { Component } from "react"
-import Link from "next/link"
-class page extends Component {
-  constructor(props) {
-    super(props)
-  }
+'use-client'
+import React from 'react';
 
-  componentDidMount() {}
-
-  render() {
+const Page = () => {
     return (
-      <div>
-        สุวรรณ หีใหญ่
-        <Link
-          href={{
-            pathname: "/dashboard/insert",
-            query: { name: "test" },
-          }}
-        >
-          <button>asdasd</button>
-        </Link>
-      </div>
-    )
-  }
+        <div>
+            asdasdasd
+            askdjalksjdkl
+            asdkljklajklsdj
+            asdkljkalkjsldkja
+            aslkjdlakjsld
+            <div>
+            asdasdasd
+            askdjalksjdkl
+            asdkljklajklsdj
+            asdkljkalkjsldkja
+            aslkjdlakjsld
+        </div>
+        <div>
+            asdasdasd
+            askdjalksjdkl
+            asdkljklajklsdj
+            asdkljkalkjsldkja
+            aslkjdlakjsld
+        </div>
+        <div>
+            asdasdasd
+            askdjalksjdkl
+            asdkljklajklsdj
+            asdkljkalkjsldkja
+            aslkjdlakjsld
+        </div>
+        <div>
+            asdasdasd
+            askdjalksjdkl
+            asdkljklajklsdj
+            asdkljkalkjsldkja
+            aslkjdlakjsld
+        </div>
+        </div>
+        
+    );
 }
 
-export default page
+export default Page;

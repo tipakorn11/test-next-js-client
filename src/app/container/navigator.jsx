@@ -1,7 +1,8 @@
+"use client"
 import React, { useState, useEffect } from "react"
 import { Divider, Drawer, List, Box, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import accessMenu from "./menu";
 
 const Logout = [
@@ -81,18 +82,18 @@ export default function TheNavigator(props, PERMISSIONS, USER) {
 
   return (
     <Drawer variant="permanent" {...other}>
-      <Link style={{ textDecoration: "none" }} to="/">
+      {/* <Link style={{ textDecoration: "none" }} to="/">
         <List disablePadding>
           <ListItem sx={{ ...itemCategory, fontSize: 20, color: '#fff' }}>
             CCTV Live Streaming
           </ListItem>
         </List>
-      </Link>
+      </Link> */}
 
       <List disablePadding>
         {menuItems.map((item, index) => (
           <ListItem disablePadding key={index} sx={styles.listItem}>
-            <Link to={item.to} style={{ textDecoration: "none", color: "white", width:"100%"}}>
+            {/* <Link to={item.to} style={{ textDecoration: "none", color: "white", width:"100%"}}>
               <ListItemButton>
                 {item.icon ? (
                   <ListItemIcon>
@@ -103,7 +104,7 @@ export default function TheNavigator(props, PERMISSIONS, USER) {
                 )}
                 <ListItemText primary={item.name} />
               </ListItemButton>
-            </Link>
+            </Link> */}
           </ListItem>
         ))}
       </List>
