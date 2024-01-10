@@ -10,7 +10,7 @@ import Box from "@mui/material/Box"
 
 export const DrawerWidth = createContext()
 function TheLayout(props,children) {
-  const [drawerWidth, setDrawerWidth] = useState(240)
+  const [drawerWidth, setDrawerWidth] = useState(140)
   const { window } = props
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -38,7 +38,7 @@ function TheLayout(props,children) {
           mobileOpen={mobileOpen}
           handleDrawerToggle={handleDrawerToggle}
           sx={{
-            backgroundColor: "#101424",
+            backgroundColor: "#1231",
           }}
         />
 
@@ -46,13 +46,23 @@ function TheLayout(props,children) {
           component="main"
           sx={{
             flexGrow: 1,
-            p: 3,
+            pl: 4,
+            pt: 1,
+            height:'90vh',
             width: { sm: `calc(100% - ${drawerWidth}px)` },
             marginLeft: { sm: `${drawerWidth}px` },
-            backgroundColor: "#e9eff2",
+            background: `linear-gradient(
+              to bottom,
+              #04133C 0%,
+              #04133C 50%,
+              #d2d2d2 50%,
+              #d2d2d2 100%
+            )`, // Set your colors and height
           }}
+
+
         >
-          <Content  > {children}</Content>
+          <Content  > {props.children}</Content>
         </Box>
       </Box>
       {/* ) : (

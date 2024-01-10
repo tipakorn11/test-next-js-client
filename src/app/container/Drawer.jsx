@@ -1,35 +1,17 @@
 import * as React from "react"
-import Drawer from "@mui/material/Drawer"
-import List from "@mui/material/List"
-import ListItem from "@mui/material/ListItem"
-import ListItemButton from "@mui/material/ListItemButton"
-import Divider from "@mui/material/Divider"
-import CssBaseline from "@mui/material/CssBaseline"
-import Toolbar from "@mui/material/Toolbar"
-import ListItemText from "@mui/material/ListItemText"
-import ListItemIcon from "@mui/material/ListItemIcon"
-import Box from "@mui/material/Box"
-import HomeIcon from '@mui/icons-material/Home';
-import CampaignIcon from '@mui/icons-material/Campaign';
+import HomeIcon from "@mui/icons-material/Home"
+import CampaignIcon from "@mui/icons-material/Campaign"
+import { Box, ListItem, ListItemText, Toolbar, CssBaseline, ListItemIcon, Divider, ListItemButton, List, Drawer, Typography } from "@mui/material"
 
 function SideBar(props) {
   const drawer = (
-    <div
-      sx={{
-        backgroundColor: "#101424",
-      }}
-    >
-      <Toolbar >
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>Queue managenent</ListItemIcon>
-            <ListItemText />
-          </ListItemButton>
-        </ListItem>
-      </Toolbar>
-
+    <div>
+        <ListItemButton sx= {{bgcolor:'white',borderColor:'white', height:'2.66rem'}}>
+          <Typography sx={{ fontSize: "0.9rem"}} noWrap component="div">
+            Company Name
+          </Typography>
+        </ListItemButton>
       <List>
-        <Divider />
         <ListItem disablePadding>
           {/* <ListItemButton
             component={Link}
@@ -74,12 +56,11 @@ function SideBar(props) {
       sx={{
         width: { sm: props.drawerWidth },
         flexShrink: { sm: 0 },
-        backgroundColor: "#101424",
+        backgroundColor: "#1111",
       }}
     >
       <CssBaseline />
       <Drawer
-        variant="temporary"
         open={props.mobileOpen}
         onClose={props.handleDrawerToggle}
         ModalProps={{
@@ -87,10 +68,11 @@ function SideBar(props) {
         }}
         sx={{
           display: { xs: "block", sm: "none" },
-          backgroundColor: "#101424",
+          // backgroundColor: "#101424",
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: props.drawerWidth,
+            backgroundColor:'#1C399F'
           },
         }}
       >
@@ -104,6 +86,8 @@ function SideBar(props) {
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: props.drawerWidth,
+            backgroundColor:'#1C399F'
+
           },
         }}
         open

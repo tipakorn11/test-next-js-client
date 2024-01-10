@@ -6,7 +6,7 @@ const loading = (
   </div>
 )
 
-const TheContent = (props,children) => {
+const TheContent = (props) => {
   const { PERMISSIONS, USER } = props
   const _generatePermission = (data) =>
     PERMISSIONS.find((item) => item.menu_name == data.key) || {
@@ -18,7 +18,7 @@ const TheContent = (props,children) => {
       permission_delete: false,
     }
   return (
-    <></>
+    <>{props.children}</>
     // <Suspense fallback={loading}>
     //     {routes.map((route, idx) => {
     //       let PERMISSION = _generatePermission({ key: route.key })

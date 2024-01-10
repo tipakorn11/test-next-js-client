@@ -1,41 +1,61 @@
-'use client'
+"use client"
 import React, { useContext } from "react"
-import AppBar from "@mui/material/AppBar"
-import Toolbar from "@mui/material/Toolbar"
+import { Avatar, AppBar } from "@mui/material"
 import IconButton from "@mui/material/IconButton"
 import MenuIcon from "@mui/icons-material/Menu"
-import Typography from "@mui/material/Typography"
-import Divider from "@mui/material/Divider" // เพิ่มบรรทัดนี้
 import { DrawerWidth } from "./layout"
+import { Button } from "primereact"
 function Header(props) {
   const { drawerWidth, setDrawerWidth } = useContext(DrawerWidth)
-  return drawerWidth > 0 ? (
+  return (
     <AppBar
       position="relative"
       sx={{
+        height: "2.66rem",
         width: { sm: `calc(100% - ${props.drawerWidth}px)` },
         ml: { sm: `${props.drawerWidth}px` },
-        backgroundColor: "#1aa4e7",
+        backgroundColor: "#ffffff",
       }}
     >
-      <Toolbar>
+      <div className="flex flex-wrap h-full align-items-center ml-2 justify-content-between">
         <IconButton
-          color="inherit"
+          color="default"
           aria-label="open drawer"
           edge="start"
           onClick={() => {
             props.handleDrawerToggle()
-            drawerWidth > 0 ? setDrawerWidth(0) : setDrawerWidth(240)
           }}
-          sx={{ mr: 2 }}
+          sx={{ ml: 2, mr: 2, display: { xs: "block", sm: "none" } }}
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
-          ระบบจัดการคิว
-        </Typography>
-      </Toolbar>
+
+        <label className="ml-2 hidden sm:block text-color">Typography check</label>
+        <Button
+          label="Search"
+          icon="pi pi-search"
+          className="hidden sm:block text-color m-auto h-2rem w-3 border-round-2xl p-0 border-400"
+          pt={{ root: { className: "bg-white" }, label: { className: "text-left" } }}
+          onClick={() => console.log("idiot")}
+        />
+
+        <Button
+          className="block sm:hidden h-2rem p-0"
+          icon="pi pi-search"
+          outlined
+          severity="secondary"
+          aria-label="Search"
+          onClick={() => console.log("idiot")}
+        />
+        <div className="flex">
+          <div className="flex flex-column mr-2  p-1">
+            <label className="text-xs text-right text-color">nukkanik</label>
+            <label className="text-xs text-color">Super Admin</label>
+          </div>
+          <Avatar src="/image/avatar.png" alt="My Avatar" />
+        </div>
+      </div>
     </AppBar>
-  ) : null
+  )
 }
 export default Header
