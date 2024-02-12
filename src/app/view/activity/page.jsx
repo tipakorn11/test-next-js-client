@@ -7,25 +7,38 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { ProductService } from './product';
 import { Button } from 'primereact/button';
+import { Dialog } from 'primereact/dialog';
+import PropsTest from './props-test';
 
 const Page = () => {
 
 
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
 
-    const load = () => {
-        setLoading(true);
 
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-    };
+
+    // const load = () => {
+    //     setLoading(true);
+
+    //     setTimeout(() => {
+    //         setLoading(false);
+    //     }, 2000);
+    // };
 
     const [products, setProducts] = useState([{}]);
 
     useEffect(() => {
         ProductService.getProductsMini().then(data => setProducts(data));
     }, []);
+
+    const [visible, setVisible] = useState(false);
+
+    const footerContent = (
+        <div>
+            <Button label="Ok" icon="pi pi-check" onClick={() => setVisible(false)} autoFocus />
+        </div>
+    );
+
 
     const header = (name) => {
         return (
@@ -51,7 +64,25 @@ const Page = () => {
                 <p className='m-0'>
                     Stock
                 </p>
-                <Button label="Buy" className='h-2rem' style={{background: "#00ff10"}} icon="pi pi-check" loading={loading} onClick={load} />
+
+
+                
+                <Button label="Buy" className='h-2rem' style={{ background: "#00ff10" }} icon="pi pi-check"
+                    //loading={loading} onShow={load} 
+                    onClick={() => setVisible(true)}
+                />
+
+                <PropsTest visible={visible} onHide={() => {setVisible(false)}}></PropsTest>
+
+
+
+                {/* <Dialog header="Header" visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)}>
+                    <p className="m-0">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, qui? Corporis consequuntur tenetur doloremque nostrum hic fugit ipsa? Aut nisi recusandae, inventore maiores cupiditate vel eum odit repellat molestias a libero, perspiciatis consequuntur similique, temporibus distinctio deserunt repellendus. Cumque, tempore enim eligendi necessitatibus sit non odit tempora facere nisi consequuntur repellat fuga? Repellat impedit odio, magnam aut error natus eius voluptates. Perferendis rem animi id soluta, praesentium blanditiis cum eius nulla quas commodi quidem aut ea! Qui, cupiditate iusto! Reprehenderit, ullam quam aperiam enim et iure hic, blanditiis ex, dolore quod vitae totam suscipit eligendi quibusdam praesentium sed mollitia nemo?
+                    </p>
+                </Dialog> */}
+
+
 
             </div>
         );
