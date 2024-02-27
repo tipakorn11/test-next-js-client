@@ -15,7 +15,21 @@ const Page = () => {
 
     // const [loading, setLoading] = useState(false);
 
+    // const handleMeasuringPoint = (name, e, idx) => {
+    //     const { measuringPoint } = state
+    //     measuringPoint[idx][name] = e
+    //     setState({ ...state, measuringPoint })
+    //   }
 
+      useEffect(() => {
+        const fetchData = async() =>{
+            const product = await ProductService.getProductsSmall()
+            console.log(product);
+            setState({ ...state, loading: false})
+        }
+        fetchData()
+      }
+      )
 
     // const load = () => {
     //     setLoading(true);
@@ -88,7 +102,22 @@ const Page = () => {
         );
     }
     return (
+        
         <>
+        {/* {state.measuringPoint.map((item, index) => {
+              return (
+                <div key={index} className="field ">
+                  <label>{item.measuring_point_name}</label>
+                  <InputText
+                    id={item.measuring_point_name}
+                    className="p-inputtext-sm w-full "
+                    value={item.mp_value || ""}
+                    onChange={(e) => handleMeasuringPoint("mp_value", e.target.value, index)}
+                  />
+                  {state.submit && !item.measuring_point_name && <small className="p-error">โปรดกรอกข้อมูลฟิลด์นี้</small>}
+                </div>
+              )
+            })} */}
             <p className='m-0 text-white'>
                 Activity
             </p>
