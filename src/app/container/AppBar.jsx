@@ -52,7 +52,7 @@ function Header(props) {
             <label className="text-xs text-right text-color">nukkanik</label>
             <label className="text-xs text-color">Super Admin</label>
           </div>
-          <Avatar src="/image/avatar.png" alt="My Avatar" />
+          {/* <Avatar src="/image/avatar.png" alt="My Avatar" /> */}
         </div>
       </div>
     </AppBar>
